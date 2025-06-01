@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Res Gen"
+run/main_scene="uid://cq1jj5fgrp5ui"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,8 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+window/stretch/scale=2.22
 
 [editor_plugins]
 
