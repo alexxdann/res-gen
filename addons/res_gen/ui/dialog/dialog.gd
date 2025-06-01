@@ -15,7 +15,7 @@ func _ready() -> void:
 	get_cancel_button().size = btn_size;
 	
 	options.grab_focus();
-	options.get_selected_metadata()
+	
 	for type in ClassDB.get_class_list():
 		if ClassDB.is_parent_class(type, "Node"):
 			options.add_item(type);
