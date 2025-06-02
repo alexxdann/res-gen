@@ -36,28 +36,28 @@ func _click_create_component_item(p: String) -> void:
 func _accept_confirm():
 	if component_name.length() > 0:
 		var type = dialog.get_options_value();
-		var base_src = path.path_join(component_name).path_join(component_name);
+		var snake_name = component_name.to_snake_case();
+		var pascal_name = component_name.to_pascal_case();
+		var base_src = path.path_join(snake_name).path_join(snake_name);
 		var script = GDScript.new();
 		var node_to_save = ClassDB.instantiate(type);
 		var dir = DirAccess.open(path);
 		var scene = PackedScene.new();
 		
-		dir.make_dir(component_name);
+		dir.make_dir(snake_name);
 		
 		script.source_code = """extends {type}
 
 func _ready():
 	pass""".format({"type": type});
 		
-		script.resource_name = component_name;
 		script.resource_path = base_src + ".gd";
 		ResourceSaver.save(script, script.resource_path);
 		
-		node_to_save.name = component_name.capitalize();
+		node_to_save.name = pascal_name;
 		node_to_save.set_script(load(script.resource_path));
-		scene.resource_name = component_name;
 		scene.pack(node_to_save);
-		ResourceSaver.save(scene, base_src+".tscn");
+		ResourceSaver.save(scene, base_src + ".tscn");
 
 		editor_filesystem.scan();
 		dialog.input.text = "";
