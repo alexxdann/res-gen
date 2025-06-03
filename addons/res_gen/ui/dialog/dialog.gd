@@ -14,9 +14,12 @@ func _ready() -> void:
 	get_ok_button().size = btn_size;
 	get_cancel_button().size = btn_size;
 	
+	options.clear();
+	
 	for type in ClassDB.get_class_list():
-		if ClassDB.is_parent_class(type, "Node"):
+		if ClassDB.is_parent_class(type, "Node") and ClassDB.can_instantiate(type) and ClassDB.class_exists(type) and ClassDB.is_class_enabled(type):
 			options.add_item(type);
+			pass
 
 func _on_input_text_changed(new_text: String) -> void:
 	component_name_changed.emit(new_text);

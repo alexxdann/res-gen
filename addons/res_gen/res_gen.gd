@@ -43,9 +43,9 @@ func _accept_confirm():
 		var node_to_save = ClassDB.instantiate(type);
 		var dir = DirAccess.open(path);
 		var scene = PackedScene.new();
-		
+
 		dir.make_dir(snake_name);
-		
+
 		script.source_code = """extends {type}
 
 func _ready():
