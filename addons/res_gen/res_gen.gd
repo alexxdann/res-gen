@@ -17,7 +17,7 @@ func _enter_tree() -> void:
 	dialog.component_name_changed.connect(_change_component_name);
 	dialog.confirmed.connect(_accept_confirm);
 	dialog.canceled.connect(_cancel_confirm);
-	add_child(dialog);
+	EditorInterface.get_base_control().add_child(dialog);
 	
 	context_menu = plugin_file.new();
 	context_menu.item_clicked.connect(_click_create_component_item);
