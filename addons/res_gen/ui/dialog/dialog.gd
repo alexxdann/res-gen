@@ -13,7 +13,6 @@ func _ready() -> void:
 	register_text_enter(input);
 	get_ok_button().size = btn_size;
 	get_cancel_button().size = btn_size;
-	
 	options.clear();
 	
 	for type in ClassDB.get_class_list():

@@ -4,26 +4,23 @@
 
 [node name="Dialog" type="ConfirmationDialog"]
 title = "Add Component"
-initial_position = 1
-size = Vector2i(358, 160)
-unresizable = true
-extend_to_title = true
-min_size = Vector2i(250, 100)
+initial_position = 4
+size = Vector2i(510, 151)
+min_size = Vector2i(350, 70)
 script = ExtResource("1_2ux5l")
 
 [node name="Inputs" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(50, 0)
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 350.0
-offset_bottom = 111.0
+offset_right = 502.0
+offset_bottom = 102.0
 size_flags_horizontal = 3
 
 [node name="Options" type="OptionButton" parent="Inputs"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 size_flags_vertical = 2
-selected = 0
 allow_reselect = true
 item_count = 235
 popup/item_0/text = "AcceptDialog"

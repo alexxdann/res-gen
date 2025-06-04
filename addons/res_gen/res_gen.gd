@@ -17,10 +17,11 @@ func _enter_tree() -> void:
 	dialog.component_name_changed.connect(_change_component_name);
 	dialog.confirmed.connect(_accept_confirm);
 	dialog.canceled.connect(_cancel_confirm);
-	EditorInterface.get_base_control().add_child(dialog);
 	
 	context_menu = plugin_file.new();
 	context_menu.item_clicked.connect(_click_create_component_item);
+
+	EditorInterface.get_base_control().add_child(dialog);
 	add_context_menu_plugin(EditorContextMenuPlugin.ContextMenuSlot.CONTEXT_SLOT_FILESYSTEM, context_menu);
 	
 func _click_create_component_item(p: String) -> void:
